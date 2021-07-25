@@ -35,7 +35,7 @@ namespace Library.API.Controllers
         /// Get an author by his/her id
         /// </summary>
         /// <param name="authorId">The id of the author you want to get</param>
-        /// <returns>An author with id, firstname and lastname fields</returns>
+        /// <returns>An action result of type author</returns>
         [HttpGet("{authorId}")]
         public async Task<ActionResult<Author>> GetAuthor(
             Guid authorId)
@@ -70,6 +70,23 @@ namespace Library.API.Controllers
             return Ok(_mapper.Map<Author>(authorFromRepo)); 
         }
 
+        /// <summary>
+        /// Partially update an author
+        /// </summary>
+        /// <param name="authorId">The id of the author you want to get</param>
+        /// <param name="patchDocument">The set if operations to apply to the author</param>
+        /// <returns>An ActionResult of type Author</returns>
+        /// <remarks>
+        /// Sample request (this request updates the author's first name) \
+        /// \ PATCH /authors/id \
+        /// [   \
+        ///     { \
+        ///         "op": "replace", \
+        ///         "path": "/firstname", \
+        ///         "value": "new first name" \
+        ///     } \
+        /// ]\
+        /// </remarks>
         [HttpPatch("{authorId}")]
         public async Task<ActionResult<Author>> UpdateAuthor(
             Guid authorId,

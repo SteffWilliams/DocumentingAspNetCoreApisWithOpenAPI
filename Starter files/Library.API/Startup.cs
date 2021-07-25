@@ -87,7 +87,13 @@ namespace Library.API
                     new Microsoft.OpenApi.Models.OpenApiInfo()
                 {
                     Title = "Library API",
-                    Version = "1"
+                    Version = "1", 
+                    Description = "Throught this API you can access authors and their books."
+                    Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                    {
+                        Email = "steffon4991@gmail.com", 
+                        Name = "Steffon Williams"
+                    }
             });
                 var xmlCommentsFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlCommentsFullPath = Path.Combine(AppContext.BaseDirectory, xmlCommentsFile);
