@@ -31,7 +31,11 @@ namespace Library.API.Controllers
             var authorsFromRepo = await _authorsRepository.GetAuthorsAsync();
             return Ok(_mapper.Map<IEnumerable<Author>>(authorsFromRepo));
         }
-
+        /// <summary>
+        /// Get an author by his/her id
+        /// </summary>
+        /// <param name="authorId">The id of the author you want to get</param>
+        /// <returns>An author with id, firstname and lastname fields</returns>
         [HttpGet("{authorId}")]
         public async Task<ActionResult<Author>> GetAuthor(
             Guid authorId)
