@@ -88,7 +88,7 @@ namespace Library.API
                 {
                     Title = "Library API",
                     Version = "1", 
-                    Description = "Throught this API you can access authors and their books."
+                    Description = "Throught this API you can access authors and their books.",
                     Contact = new Microsoft.OpenApi.Models.OpenApiContact()
                     {
                         Email = "steffon4991@gmail.com", 
