@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace Library.API.Controllers
 {
@@ -37,6 +38,9 @@ namespace Library.API.Controllers
         /// <param name="authorId">The id of the author you want to get</param>
         /// <returns>An action result of type author</returns>
         [HttpGet("{authorId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult<Author>> GetAuthor(
             Guid authorId)
         {
@@ -50,6 +54,9 @@ namespace Library.API.Controllers
         }
 
         [HttpPut("{authorId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult<Author>> UpdateAuthor(
             Guid authorId,
             AuthorForUpdate authorForUpdate)
